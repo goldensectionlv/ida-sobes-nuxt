@@ -1,6 +1,6 @@
 # ida2 
 
-# Демонстрация https://nuxt-ida-app.herokuapp.com/categories/1
+# Демонстрация https://nuxt-ida-app.herokuapp.com
 
 ## Build Setup
 
