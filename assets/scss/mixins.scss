@@ -1,0 +1,33 @@
+@mixin flex-align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-align-center-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin zoom_hover($zoom_ratio: 1.05, $speed:200ms) {
+  &:hover {
+    -ms-transform: scale($zoom_ratio); /* IE 9 */
+    -webkit-transform: scale($zoom_ratio); /* Safari 3-8 */
+    transform: scale($zoom_ratio);
+    transition: $speed ease-out;
+  }
+}
+
+@mixin regular_text {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+
+

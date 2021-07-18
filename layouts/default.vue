@@ -1,28 +1,43 @@
 <template>
   <div>
-    <Nuxt />
+    <basket/>
+    <div class="main_container">
+      <app_header
+        class="app_header"
+      />
+      <app_title
+        class="app_title"
+      />
+      <app_sidebar
+        class="app_sidebar"
+      />
+      <div class="app_body">
+        <Nuxt/>
+      </div>
+    </div>
   </div>
 </template>
 
-<style>
-html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+<script>
+import app_header from "@/components/app_header";
+import app_title from "@/components/app_title";
+import app_sidebar from "@/components/app_sidebar";
+import basket from "@/components/basket";
+
+export default {
+  components: {
+    app_header,
+    app_title,
+    app_sidebar,
+    basket
+  },
+  mounted() {
+    this.$store.dispatch('basket/local_storage_request')
+  }
 }
+</script>
+
+<style lang="scss">
 
 *,
 *::before,
@@ -31,32 +46,56 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.main_container {
+  font-family: 'PT Sans', sans-serif;
+  padding: 0 6.11vw;
+  display: grid;
+  grid-template-columns: minmax(11vw, 161px) 1fr;
+  grid-template-rows: 66px minmax(33px, 66px) 1fr;
+  grid-template-areas:
+      "app_header app_header"
+      "app_title app_title"
+      "app_sidebar app_body";
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.app_header {
+  grid-area: app_header;
+  @include flex-align-center-space-between;
+  height: 66px;
+  //border: 1px solid black
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+.app_title {
+  grid-area: app_title;
+  @include flex-align-center-space-between;
+  width: 100%;
+  padding-top: 25px;
+  //border: 1px solid black
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.app_sidebar {
+  grid-area: app_sidebar;
+  display: flex;
+  flex-direction: column;
+  padding-top: 25px;
+  //border: 1px solid black
+}
+
+.app_body {
+  grid-area: app_body;
+  padding-top: 25px;
+  //border: 1px solid black
+
+}
+
+@media (max-width: 500px) {
+  .main_container {
+    grid-template-rows: 66px minmax(33px, 66px) minmax(33px, auto) 1fr;
+    grid-template-areas:
+      "app_header app_header"
+      "app_title app_title"
+      "app_sidebar app_sidebar"
+      "app_body app_body";
+  }
 }
 </style>
