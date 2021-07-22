@@ -1,17 +1,17 @@
 <template>
   <div>
     <basket/>
-    <div class="main_container">
+    <div class="main-container">
       <app_header
-        class="app_header"
+        class="app-header"
       />
       <app_title
-        class="app_title"
+        class="app-title"
       />
       <app_sidebar
-        class="app_sidebar"
+        class="app-sidebar"
       />
-      <div class="app_body">
+      <div class="app-body">
         <Nuxt/>
       </div>
     </div>
@@ -46,7 +46,7 @@ export default {
   margin: 0;
 }
 
-.main_container {
+.main-container {
   font-family: 'PT Sans', sans-serif;
   padding: 0 6.11vw;
   display: grid;
@@ -58,14 +58,14 @@ export default {
       "app_sidebar app_body";
 }
 
-.app_header {
+.app-header {
   grid-area: app_header;
   @include flex-align-center-space-between;
   height: 66px;
   //border: 1px solid black
 }
 
-.app_title {
+.app-title {
   grid-area: app_title;
   @include flex-align-center-space-between;
   width: 100%;
@@ -73,7 +73,7 @@ export default {
   //border: 1px solid black
 }
 
-.app_sidebar {
+.app-sidebar {
   grid-area: app_sidebar;
   display: flex;
   flex-direction: column;
@@ -81,7 +81,7 @@ export default {
   //border: 1px solid black
 }
 
-.app_body {
+.app-body {
   grid-area: app_body;
   padding-top: 25px;
   //border: 1px solid black
@@ -89,7 +89,7 @@ export default {
 }
 
 @media (max-width: 500px) {
-  .main_container {
+  .main-container {
     grid-template-rows: 66px minmax(33px, 66px) minmax(33px, auto) 1fr;
     grid-template-areas:
       "app_header app_header"

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <span class="app_header__testList">TestList</span>
+    <span class="appHeader__testList">TestList</span>
 
-    <div class="app_header__icon_container">
-      <div class="app_header__icon_container__counter"
+    <div class="appHeader__icon-container">
+      <div class="appHeader__icon-container__counter"
            @click="open"
       >
         {{ total }}
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app_header {
+.appHeader {
   &__testList {
     font-style: normal;
     font-weight: bold;
@@ -60,7 +60,7 @@ export default {
     color: $grey;
   }
 
-  &__icon_container {
+  &__icon-container {
     position: relative;
 
     &__counter {

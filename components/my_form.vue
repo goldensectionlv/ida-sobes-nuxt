@@ -1,76 +1,76 @@
 <template>
 
   <form @submit.prevent="form_submit">
-    <div class="form_header">
+    <div class="form-header">
       Оформить заказ
     </div>
-    <div class="form_group">
+    <div class="form-group">
       <label for="username"/>
       <input id="username"
              type="text"
-             class="form_item"
-             :class="$v.form.username.$error ? 'invalid_input' : ''"
+             class="form-item"
+             :class="$v.form.username.$error ? 'invalid-input' : ''"
              v-model.trim="form.username"
              placeholder="Ваше имя"
       >
       <span
-        class="invalid_text"
+        class="invalid-text"
         v-if="$v.form.username.$dirty && !$v.form.username.required"
       >
         Обязательное поле
       </span>
     </div>
 
-    <div class="form_group">
+    <div class="form-group">
       <label for="phone"/>
       <input
         id="phone"
         type="text"
-        class="form_item"
-        :class="$v.form.phone.$error ? 'invalid_input' : ''"
+        class="form-item"
+        :class="$v.form.phone.$error ? 'invalid-input' : ''"
         v-model.trim.lazy="form.phone"
         placeholder="Телефон"
         v-phone
       >
       <span
-        class="invalid_text"
+        class="invalid-text"
         v-if="$v.form.phone.$dirty && !$v.form.phone.required && !$v.form.phone.minLength"
       >
         Обязательное поле
       </span>
       <span
-        class="invalid_text"
+        class="invalid-text"
         v-if="$v.form.phone.$dirty && !$v.form.phone.minLength"
       >
         Не до конца введен телефон
       </span>
     </div>
-    <div class="form_group">
+    <div class="form-group">
       <label for="address"/>
       <input
         id="address"
         type="text"
-        class="form_item"
-        :class="$v.form.address.$error ? 'invalid_input' : ''"
+        class="form-item"
+        :class="$v.form.address.$error ? 'invalid-input' : ''"
         v-model.trim="form.address"
         placeholder="Адрес"
       >
       <span
-        class="invalid_text"
+        class="invalid-text"
         v-if="$v.form.address.$dirty && !$v.form.address.required"
       >Обязательное поле
       </span>
     </div>
 
     <div>
-      <button type="submit" class="form_btn">Отправить</button>
+      <button type="submit" class="form-btn">Отправить</button>
     </div>
 
     <div
-      class="form_alert"
+      class="form-alert"
       v-if="$v.form.$error"
     >
-      <div class="form_alert_signs">!!</div>
+      <div class="form-alert-signs">!!</div>
       Все поля обязательные. После удачной отправки формы содержимое корзины очищается
     </div>
   </form>
@@ -120,19 +120,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form_header {
+.form-header {
   font-weight: 400;
   font-size: 18px;
   color: $grey;
   margin: 32px 0 16px 0;
 }
 
-.form_group {
+.form-group {
   width: 100%;
   margin-bottom: 16px;
 }
 
-.form_item {
+.form-item {
   height: 50px;
   width: 100%;
   border-radius: 8px;
@@ -141,12 +141,12 @@ export default {
   outline: none;
 }
 
-.invalid_input {
+.invalid-input {
   border: 1px solid $red;
 
 }
 
-.form_btn {
+.form-btn {
   height: 50px;
   width: 100%;
   border-radius: 8px;
@@ -156,24 +156,24 @@ export default {
   cursor: pointer;
 }
 
-.form_btn:hover {
+.form-btn:hover {
   background-color: $grey;
 }
 
-.invalid_text {
+.invalid-text {
   font-weight: 900;
   font-size: 8px;
   color: $red;
   margin-top: 6px;
 }
 
-.form_alert {
+.form-alert {
   @include regular_text;
   display: flex;
   margin-top: 32px;
 }
 
-.form_alert_signs {
+.form-alert-signs {
   font-size: 32px;
   font-weight: bold;
   color: $red;

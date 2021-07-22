@@ -1,7 +1,7 @@
 <template>
   <span
       :class="[
-          is_h1 ? 'h1_class' : '',
+          is_h1 ? 'h1-class' : '',
           disabled ? 'disabled' : '',
           regular ? 'regular' : '',
           ]"
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.h1_class {
+.h1-class {
   font-family: $main-font;
   font-style: normal;
   font-weight: bold;

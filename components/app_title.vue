@@ -1,18 +1,18 @@
 <template>
-  <div @mouseleave="close">
-    <span class="h1_class">Каталог</span>
+  <div>
+    <span class="appTitle-header">Каталог</span>
 
-    <div
-      class="filter_container"
-      @mouseenter="open"
+    <div class="filter-container"
     >
-      <span class="filter_container__regular_text">
+      <div @click="open_or_close">
+      <span class="filter-container__regular-text">
         Сортировать по:
       </span>
 
-      <span class="filter_container__grey_text">
+      <span class="filter-container__grey-text">
        {{ modal_filter.active_product_filter }}
       </span>
+      </div>
 
       <transition
         name="slide"
@@ -21,12 +21,11 @@
       >
         <div
           v-if="modal_filter.filter_modal_active"
-          class="filter_container__modal_filter"
+          class="filter-container__modal-filter"
         >
           <span
-            class="filter_container__modal_filter__item"
+            class="filter-container__modal-filter__item"
             v-for="option in filter_options" :key="option.name"
-            :class="option.name !== modal_filter.active_product_filter ? 'inactive_option' : ''"
             @click="option.action"
           >
             {{ 'По ' + option.name }}
@@ -60,23 +59,24 @@ export default {
     }
   },
   methods: {
-    close() {
-      this.$store.dispatch('open_or_close_filter_modal', false)
-    },
-    open() {
-      this.$store.dispatch('open_or_close_filter_modal', true)
+    open_or_close() {
+      if (this.modal_filter.filter_modal_active) {
+        this.$store.dispatch('open_or_close_filter_modal', false)
+      } else {
+        this.$store.dispatch('open_or_close_filter_modal', true)
+      }
     },
     option_click(option_name) {
       this.$store.dispatch('filter_by', option_name)
       this.$store.dispatch('pagination/paginatedData', {arr: this.product_list, pageNumber: 0})
-      this.close()
+      this.open_or_close()
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.h1_class {
+.appTitle-header {
   font-family: $main-font;
   font-style: normal;
   font-weight: bold;
@@ -85,19 +85,22 @@ export default {
   color: $black;
 }
 
-.filter_container {
+.filter-container {
   position: relative;
+  user-select: none;
   cursor: pointer;
 
-  &__regular_text {
+  &__regular-text {
     @include regular_text;
+    user-select: none
   }
 
-  &__grey_text {
-    color: $grey;
+  &__grey-text {
+    color: $grey-light;
+    user-select: none
   }
 
-  &__modal_filter {
+  &__modal-filter {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -112,10 +115,14 @@ export default {
       margin-bottom: 6px;
       font-size: 14px;
     }
+
+    &__item:hover {
+      color: $grey-light
+    }
   }
 }
 
-.inactive_option {
+.inactive-option {
   color: $grey-light
 }
 

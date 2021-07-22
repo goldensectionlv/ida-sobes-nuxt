@@ -1,9 +1,9 @@
 <template>
   <div>
     <div
-        class="number_of_page_item"
+        class="number-of-page-item"
         v-for="page of pageCount" :key="page"
-        :class="pageNumber === page-1 ? 'active_page' : ''"
+        :class="pageNumber === page-1 ? 'active-page' : ''"
         @click="action({arr: items_array, pageNumber: page-1})"
     >
       {{ page }}
@@ -23,11 +23,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.active_page {
+.active-page {
   color: $red;
 }
 
-.number_of_page_item {
+.number-of-page-item {
   @include flex-align-center;
   width: 50px;
   height: 50px;

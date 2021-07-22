@@ -7,7 +7,7 @@
     >
       <!--      star-->
       <div
-          class="wrapper__buttons_area"
+          class="wrapper__buttons-area"
       >
         <ratings
             :rating="product.rating"
@@ -38,16 +38,16 @@
         />
         <!--        title-->
         <div
-            class="wrapper__details__title_container"
+            class="wrapper__details__title-container"
         >
           <text_item
               :text="product.name.toLowerCase().split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ') + ' ' + product.id"
-              class="wrapper__details__title_container__name"
+              class="wrapper__details__title-container__name"
           />
           <text_item
               :text="product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')"
               :symbol="true"
-              class="wrapper__details__title_container__price"
+              class="wrapper__details__title-container__price"
           />
         </div>
       </div>
@@ -96,7 +96,7 @@ export default {
   border-radius: 8px;
   cursor: pointer;
 
-  &__buttons_area {
+  &__buttons-area {
     @include flex-align-center-space-between;
     position: absolute;
     width: 100%;
@@ -117,7 +117,7 @@ export default {
       align-self: center
     }
 
-    &__title_container {
+    &__title-container {
       @include flex-column;
       width: 100%;
       padding: 16px;
@@ -140,21 +140,21 @@ export default {
 }
 
 @media (max-width: 1124px) {
-  .wrapper__details__title_container__name {
+  .wrapper__details__title-container__name {
     font-size: 12px;
   }
 
-  .wrapper__details__title_container__price {
+  .wrapper__details__title-container__price {
     font-size: 12px;
   }
 }
 
 @media (max-width: 700px) {
-  .wrapper__details__title_container__name {
+  .wrapper__details__title-container__name {
     font-size: 14px;
   }
 
-  .wrapper__details__title_container__price {
+  .wrapper__details__title-container__price {
     font-size: 14px;
   }
 }

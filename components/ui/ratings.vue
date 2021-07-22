@@ -5,7 +5,7 @@
     <img v-else-if="rating === 3" :src="require('@/assets/3star.svg')" alt="">
     <img v-else-if="rating === 4" :src="require('@/assets/4star.svg')" alt="">
     <img v-else-if="rating === 5" :src="require('@/assets/5star.svg')" alt="">
-    <span class="rating_num">{{rating}}</span>
+    <span class="rating-num">{{rating}}</span>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.rating_num {
+.rating-num {
   color: $yellow;
   font-weight: bold;
   font-size: 10px;

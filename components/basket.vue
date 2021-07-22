@@ -1,6 +1,6 @@
 <template>
   <div
-      class="basket_container"
+      class="basket-container"
       v-show="basket_active"
   >
     <transition
@@ -9,7 +9,7 @@
         :key="basket_active"
     >
       <div
-          class="basket_container__basket"
+          class="basket-container__basket"
           v-if="basket_active"
       >
         <!--        basket header-->
@@ -59,12 +59,12 @@
 
         <!--thanks-->
         <div
-            class="basket_container__thanks"
+            class="basket-container__thanks"
             v-if="!basket_list.length && is_thanks_active"
         >
           <img :src="require('@/assets/ok-hand-sign.svg')" alt="thanks" style="margin-bottom: 24px;">
-          <span class="basket_container__thanks__1">Заявка успешно отправлена</span>
-          <span class="basket_container__thanks__2">Вскоре наш менеджер свяжется с Вами</span>
+          <span class="basket-container__thanks__1">Заявка успешно отправлена</span>
+          <span class="basket-container__thanks__2">Вскоре наш менеджер свяжется с Вами</span>
         </div>
 
       </div>
@@ -118,7 +118,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.basket_container {
+.basket-container {
   font-family: $main-font;
   width: 100vw;
   height: 100vh;
