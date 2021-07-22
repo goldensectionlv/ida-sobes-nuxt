@@ -1,4 +1,6 @@
-# ida2 dev in progress
+# ida2 
+
+# Демонстрация https://nuxt-ida-app.herokuapp.com
 
 ## Build Setup
 
