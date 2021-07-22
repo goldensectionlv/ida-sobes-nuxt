@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @mouseleave="$store.dispatch('open_or_close_filter_modal', false)">
     <span class="appTitle-header">Каталог</span>
 
     <div class="filter-container"

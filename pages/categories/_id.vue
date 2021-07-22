@@ -2,11 +2,11 @@
   <div>
       <div
         :key="pageNumber"
-        class="nested_wrapper"
+        class="nested-wrapper"
       >
         <product_card
           v-for="product in current_page_arr" :key="product.id"
-          class="nested_wrapper__product_card"
+          class="nested-wrapper__product-card"
           :product="product"
           :action="add_to_cart"
           :cart_ids="cart_ids"
@@ -98,13 +98,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nested_wrapper {
+.nested-wrapper {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   padding-left: 1%;
 
-  &__product_card {
+  &__product-card {
     width: 24%;
     margin-right: 1%;
     margin-bottom: 1%;
@@ -113,10 +113,10 @@ export default {
 }
 
 @media (max-width: 1124px) {
-  .nested_wrapper {
+  .nested-wrapper {
     padding-left: 2%;
 
-    &__product_card {
+    &__product-card {
       width: 30.66%;
       margin-right: 2%;
       margin-bottom: 2%;
@@ -125,10 +125,10 @@ export default {
 }
 
 @media (max-width: 900px) {
-  .nested_wrapper {
+  .nested-wrapper {
     padding-left: 2%;
 
-    &__product_card {
+    &__product-card {
       width: 47%;
       margin-right: 2%;
       margin-bottom: 2%;
@@ -137,10 +137,10 @@ export default {
 }
 
 @media (max-width: 700px) {
-  .nested_wrapper {
+  .nested-wrapper {
     padding-left: 2%;
 
-    &__product_card {
+    &__product-card {
       width: 96%;
       margin-right: 2%;
       margin-bottom: 2%;
